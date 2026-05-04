@@ -1,0 +1,26 @@
+# Compilado / saída (VS Code Java: java.project.outputPath)
+bin/
+out/
+target/
+build/
+*.class
+
+# Logs e dumps da JVM
+hs_err_pid*
+replay_pid*
+
+# Maven / Gradle (se o projeto evoluir)
+.mvn/wrapper/maven-wrapper.jar
+.gradle/
+
+# Eclipse / Red Hat Java (gerados localmente)
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# macOS
+.DS_Store
