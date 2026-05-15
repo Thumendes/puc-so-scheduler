@@ -4,6 +4,10 @@ import model.Process;
 import metrics.Metrics;
 import java.util.*;
 
+/**
+ * Implementação do algoritmo de escalonamento FCFS (First-Come, First-Served).
+ * Os processos são atendidos estritamente na ordem de chegada à fila de prontos.
+ */
 public class FCFS extends Scheduler {
 
     public FCFS() {

@@ -4,6 +4,11 @@ import model.Process;
 import metrics.Metrics;
 import java.util.*;
 
+/**
+ * Implementação do Escalonador de Filas Multinível (Multilevel Queue).
+ * Gerencia duas filas de prioridade fixa: Fila 1 (Alta Prioridade - RR) e 
+ * Fila 2 (Baixa Prioridade - FCFS).
+ */
 public class MLQ extends Scheduler {
 
     // Quantum fixo para a Fila 1 (Alta Prioridade — Round-Robin)

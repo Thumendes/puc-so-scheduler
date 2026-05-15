@@ -7,7 +7,7 @@ import model.Process;
 
 /**
  * Utilitário responsável por ler o arquivo de entrada e instanciar os processos.
- * Converte dados textuais em objetos da classe model.Process.
+ * Converte dados textuais em objetos da classe Process.
  */
 public class FileParser {
 

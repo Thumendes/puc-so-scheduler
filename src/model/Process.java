@@ -7,40 +7,28 @@ import java.util.List;
  * Contém dados de entrada, estado de execução e métricas de desempenho.
  */
 public class Process {
+    
     // --- Dados de entrada (imutáveis após criação conforme enunciado) ---
     
-   
     public final int pid;
-    
     public final int arrivalTime;
-    
     public final int burstTotal;
-     
     public final int priority;
-    
     public final List<Integer> ioInstants;
 
     // --- Estado dinâmico (modificado pelos schedulers durante a simulação) ---
     
 
     public int remainingBurst;
-    
-    public int cpuAccumulated;
-    
+    public int cpuAccumulated; 
     public State state;
 
     // --- Métricas coletadas durante a simulação para o relatório final ---
     
 
     public int startTime = -1;
-    
-
     public int completionTime = -1;
-    
-
     public int waitingTime = 0;
-    
-
     public int ioTime = 0; 
 
     /**

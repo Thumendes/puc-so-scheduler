@@ -4,6 +4,10 @@ import model.Process;
 import metrics.Metrics;
 import java.util.*;
 
+/**
+ * Escalonamento Shortest Remaining Time First (SRTF).
+ * Política preemptiva que sempre entrega a CPU ao processo com o menor tempo restante.
+ */
 public class SRTF extends Scheduler {
 
     public SRTF() {
