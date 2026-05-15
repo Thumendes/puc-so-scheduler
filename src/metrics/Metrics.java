@@ -28,9 +28,9 @@ public class Metrics {
     }
 
     public void print() {
-        IO.println(schedulerName);
-        IO.println("  espera:     " + String.format("%.2f ms", avgWaitingTime));
-        IO.println("  turnaround: " + String.format("%.2f ms", avgTurnaround));
-        IO.println("  throughput: " + String.format("%.4f proc/ms", throughput));
+        IO.println("=== " + schedulerName + " ===");
+        IO.println("  Tempo de Espera Medio : " + String.format("%.2f ms", avgWaitingTime));
+        IO.println("  Turnaround Medio      : " + String.format("%.2f ms", avgTurnaround));
+        IO.println("  Throughput            : " + String.format("%.4f proc/ms", throughput));
     }
 }
