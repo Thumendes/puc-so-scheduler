@@ -4,6 +4,14 @@ import model.Process;
 import metrics.Metrics;
 import java.util.*;
 
+/**
+ * Round-Robin com Quantum por Predição via Média Exponencial.
+ *
+ * O quantum de cada fatia é o menor τ entre os processos na fila de prontos.
+ * τ é atualizado após cada surto real: τ = α * t_real + (1-α) * τ_anterior.
+ * Com α = 0.5 e τ₀ = 10 ms, o sistema aprende progressivamente o perfil de
+ * cada processo — curtos recebem quanta menores, longos recebem quanta maiores.
+ */
 public class RoundRobin extends Scheduler {
 
     private static final double ALPHA = 0.5;

@@ -3,6 +3,15 @@ package metrics;
 import model.Process;
 import java.util.List;
 
+/**
+ * Agrega e imprime as três métricas exigidas pelo enunciado para um scheduler.
+ *
+ * waitingTime de cada processo é calculado pelos schedulers pela fórmula:
+ *   waitingTime = (completionTime - arrivalTime) - burstTotal - ioTime
+ * que desconta do turnaround tanto o tempo de CPU quanto o tempo bloqueado em I/O.
+ *
+ * throughput = processos concluídos / tempo total simulado (do t=0 até o último completionTime).
+ */
 public class Metrics {
 
     public final String schedulerName;

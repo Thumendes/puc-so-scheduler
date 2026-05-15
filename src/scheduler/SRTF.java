@@ -4,6 +4,14 @@ import model.Process;
 import metrics.Metrics;
 import java.util.*;
 
+/**
+ * SRTF — Shortest Remaining Time First (variante preemptiva do SJF).
+ *
+ * A cada chegada ou desbloqueio de I/O, o processo com menor remainingBurst
+ * assume a CPU. A preempção é implementada orientada a eventos: o processo
+ * corrente roda somente até o próximo evento relevante (chegada ou desbloqueio),
+ * momento em que a PriorityQueue reseleciona o menor burst restante.
+ */
 public class SRTF extends Scheduler {
 
     public SRTF() {
@@ -84,12 +92,14 @@ public class SRTF extends Scheduler {
         return new Metrics(name, finished, totalTime);
     }
 
+    // Move processos que já chegaram de incoming para a fila de prontos
     private void admitArrivals(Queue<Process> incoming, PriorityQueue<Process> ready, int clock) {
         while (!incoming.isEmpty() && incoming.peek().arrivalTime <= clock) {
             ready.add(incoming.poll());
         }
     }
 
+    // Move processos desbloqueados para a fila de prontos (PriorityQueue reordena automaticamente)
     private void admitUnblocked(Map<Process, Integer> blocked, PriorityQueue<Process> ready, int clock) {
         Iterator<Map.Entry<Process, Integer>> it = blocked.entrySet().iterator();
         while (it.hasNext()) {
@@ -101,6 +111,7 @@ public class SRTF extends Scheduler {
         }
     }
 
+    // Avança o relógio até o próximo evento relevante (chegada ou desbloqueio)
     private int nextEvent(Queue<Process> incoming, Map<Process, Integer> blocked) {
         int t = Integer.MAX_VALUE;
         if (!incoming.isEmpty()) t = Math.min(t, incoming.peek().arrivalTime);
@@ -108,6 +119,7 @@ public class SRTF extends Scheduler {
         return t;
     }
 
+    // Verifica se o processo atingiu exatamente um instante de I/O acumulado
     private boolean hitsIO(Process p) {
         for (int instant : p.ioInstants) {
             if (instant == p.cpuAccumulated) return true;
@@ -115,6 +127,7 @@ public class SRTF extends Scheduler {
         return false;
     }
 
+    // Quanto tempo o processo pode rodar até o próximo I/O ou até terminar
     private int nextRunLength(Process p) {
         for (int instant : p.ioInstants) {
             if (instant > p.cpuAccumulated) return instant - p.cpuAccumulated;

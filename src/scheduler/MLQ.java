@@ -4,6 +4,16 @@ import model.Process;
 import metrics.Metrics;
 import java.util.*;
 
+/**
+ * MLQ — Multilevel Queue com duas filas estáticas de prioridade.
+ *
+ * Fila 1 (priority=1, Alta Prioridade): Round-Robin com quantum fixo.
+ * Fila 2 (priority=2, Baixa Prioridade): FCFS não-preemptivo dentro da fila.
+ *
+ * Fila 1 tem precedência absoluta: processos de prioridade 1 preemptam
+ * processos de prioridade 2 em execução. Fila 2 só roda quando Fila 1 está vazia.
+ * Processos preemptados da Fila 2 retornam ao início da fila (continuam depois).
+ */
 public class MLQ extends Scheduler {
 
     // Quantum fixo para a Fila 1 (Alta Prioridade — Round-Robin)
