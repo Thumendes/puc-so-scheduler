@@ -1,0 +1,22 @@
+Simulacao com 1 processos
+
+=== FCFS ===
+  Tempo de Espera Medio : 0.00 ms
+  Turnaround Medio      : 30.00 ms
+  Throughput            : 0.0333 proc/ms
+
+=== SRTF ===
+  Tempo de Espera Medio : 0.00 ms
+  Turnaround Medio      : 30.00 ms
+  Throughput            : 0.0333 proc/ms
+
+=== Round-Robin com Quantum por Predicao ===
+  Tempo de Espera Medio : 0.00 ms
+  Turnaround Medio      : 30.00 ms
+  Throughput            : 0.0333 proc/ms
+
+=== MLQ ===
+  Tempo de Espera Medio : 0.00 ms
+  Turnaround Medio      : 30.00 ms
+  Throughput            : 0.0333 proc/ms
+
